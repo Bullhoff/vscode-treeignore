@@ -1,0 +1,52 @@
+{
+	"name": "treeignore",
+	"displayName": ".treeignore",
+	"description": "Dedicated .ignore files for Explorer/filetree",
+	"license": "SEE LICENSE IN LICENSE",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/Bullhoff/vscode-treeignore"
+	},
+	"publisher": "Bullhoff",
+	"icon": "./icons/treeignore-icon.png",
+	"version": "1.0.0",
+	"engines": { "vscode": "^1.93.0" },
+	"categories": [ "Other" ],
+	"keywords": [ "ignore", ".ignore", "ignorefile", "dotignore" ],
+	"main": "./extension.js",
+	"activationEvents": [ "workspaceContains:**/*.treeignore" ],
+	"contributes": {
+		"commands": [
+			{ "command": "treeignore.updateTreeignore", "title": "Find and parse .treeignore files" },
+			{ "command": "treeignore.disable", "title": "Disable .treeignore files for folders open in this vscode instance" },
+			{ "command": "treeignore.enable", "title": "Enable .treeignore files for folders open in this vscode instance" }
+		],
+		"configuration": {
+			"title": "treeignore Settings",
+			"properties": {
+				"treeignore.enableEventListeners": { "type": "boolean", "default": true, "description": "Modifications to .treeignore files are applied when they happen. If off, use treeignore.updateTreeignore to update .treeignore files. " },
+				"treeignore.enableComments": { "type": "boolean", "default": true, "description": "`#comment`" },
+				"treeignore.enableMidRowComments": { "type": "boolean", "default": true, "description": "`abc.txt #comment`" }
+			}
+		},
+		"grammars": [ { "language": "treeignore", "scopeName": "source.treeignore", "path": "./language/treeignore.tmLanguage.json" } ],
+		"languages": [
+			{
+				"id": "treeignore",
+				"extensions": [ ".treeignore" ],
+				"filenames": [ ".treeignore" ],
+				"icon": { "light": "./icons/treeignore-icon.svg", "dark": "./icons/treeignore-icon.svg" },
+				"configuration": "./language/language-configuration.json"
+			}
+		]
+	},
+
+	"scripts": {
+		"build": "vsce package"
+	},
+	"devDependencies": {
+		"@types/vscode": "^1.93.0",
+		"@types/mocha": "^10.0.8",
+		"@types/node": "20.x"
+	}
+}

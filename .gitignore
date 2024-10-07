@@ -1,0 +1,10 @@
+node_modules
+.vscode
+.git
+*.log
+testdir
+releases
+test
+/moosehunter
+!_**
+/_**

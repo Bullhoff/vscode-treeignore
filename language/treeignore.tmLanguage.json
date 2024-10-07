@@ -1,0 +1,11 @@
+{
+	"name": "TreeIgnore",
+	"scopeName": "source.treeignore",
+	"patterns": [
+		{
+			"match": "#.*$",
+			"name": "comment.line.number-sign.treeignore"
+		}
+	]
+}
+
